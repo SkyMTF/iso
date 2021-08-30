@@ -1,6 +1,6 @@
 # Pop!\_OS ISO production
 
-This repository contains the tools necessary for building Pop!\_OS ISOs some Macs with the T2 Chip.
+This repository contains the tools necessary for building Pop!\_OS ISOs for some Macs with the T2 Chip.
 
 ## Requirements
 
