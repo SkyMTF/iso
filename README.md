@@ -38,6 +38,10 @@ To rebuild the ISO when you have made changes, you can use `make clean && make`
 
 
 ## Additional Credits
+System76 for making PopOS 
+
+https://pop.system76.com/
+
 T2 Wiki: T2 Conf and DKMS Conf Files
 
 https://t2linux.org/ 
