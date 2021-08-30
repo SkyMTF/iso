@@ -35,3 +35,11 @@ The build is controlled by the Makefile. The following commands can be used:
 The configuration can be changed in `mk/config.mk`.
 
 To rebuild the ISO when you have made changes, you can use `make clean && make`
+
+
+## Additional Credits
+T2 Wiki: T2 Conf and DKMS Conf Files 
+https://t2linux.org/ 
+AdityaGarg8: Patched Ubuntu/Debian Kernel 
+https://github.com/AdityaGarg8/mbp-16.x-ubuntu-kernel
+And all the friends on the T2 Linux Discord who made this possible 
