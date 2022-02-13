@@ -50,10 +50,6 @@ AdityaGarg8: Patched Ubuntu/Debian Kernel
 
 https://github.com/AdityaGarg8/mbp-16.x-ubuntu-kernel
 
-The original repository by SkyMTF
-
-https://github.com/SkyMTF/iso
-
 And all the friends on the T2 Linux Discord who made this possible
 
 https://discord.gg/fsaU8nbaRT
