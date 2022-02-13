@@ -15,17 +15,17 @@ $(BUILD)/iso_casper.tag: $(BUILD)/live $(BUILD)/chroot.tag $(BUILD)/live.tag $(B
 	mkdir -p "$(BUILD)/iso/$(CASPER_PATH)"
 
 	# Copy vmlinuz
-	if [ -e "$(BUILD)/live/boot/vmlinuz" ]; then \
-		sudo cp "$(BUILD)/live/boot/vmlinuz" "$(BUILD)/iso/$(CASPER_PATH)/vmlinuz.efi"; \
+	if [ -e "$(BUILD)/live/boot/vmlinuz-5.13.13-mbp-16x-wifi" ]; then \
+		sudo cp "$(BUILD)/live/boot/vmlinuz-5.13.13-mbp-16x-wifi" "$(BUILD)/iso/$(CASPER_PATH)/vmlinuz.efi"; \
 	else \
-		sudo cp "$(BUILD)/live/vmlinuz" "$(BUILD)/iso/$(CASPER_PATH)/vmlinuz.efi"; \
+		sudo cp "$(BUILD)/live/vmlinuz-5.13.13-mbp-16x-wifi" "$(BUILD)/iso/$(CASPER_PATH)/vmlinuz.efi"; \
 	fi
 
 	# Copy initrd
-	if [ -e "$(BUILD)/live/boot/initrd.img" ]; then \
-		sudo cp "$(BUILD)/live/boot/initrd.img" "$(BUILD)/iso/$(CASPER_PATH)/initrd.gz"; \
+	if [ -e "$(BUILD)/live/boot/initrd.img-5.13.13-mbp-16x-wifi" ]; then \
+		sudo cp "$(BUILD)/live/boot/initrd.img-5.13.13-mbp-16x-wifi" "$(BUILD)/iso/$(CASPER_PATH)/initrd.gz"; \
 	else \
-		sudo cp "$(BUILD)/live/initrd.img" "$(BUILD)/iso/$(CASPER_PATH)/initrd.gz"; \
+		sudo cp "$(BUILD)/live/initrd.img-5.13.13-mbp-16x-wifi" "$(BUILD)/iso/$(CASPER_PATH)/initrd.gz"; \
 	fi
 
 	# Update manifest
@@ -108,7 +108,6 @@ $(BUILD)/grub:
 	mv "$@.partial" "$@"
 
 $(BUILD)/iso_data.tag: $(BUILD)/iso_create.tag $(BUILD)/grub
-	git submodule update --init data/grub-theme
 
 	# Replace disk info
 	rm -rf "$(BUILD)/iso/.disk"

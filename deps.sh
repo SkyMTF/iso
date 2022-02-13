@@ -15,3 +15,4 @@ sudo apt install \
     squashfs-tools \
     xorriso \
     zsync
+    git clone https://github.com/pop-os/grub-theme.git data/grub-theme/

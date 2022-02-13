@@ -2,7 +2,8 @@
     "default": {
         "kernel_options": [
             "quiet",
-            "splash"
+            "splash",
+            "efi=noruntime"
         ],
         "esp_path": "/boot/efi",
         "setup_loader": false,

@@ -32,9 +32,10 @@ $(BUILD)/chroot: $(BUILD)/debootstrap
 	sudo rm -rf "$@.partial/iso"
 	sudo mkdir -p "$@.partial/iso"
 
-	# Copy chroot script
+	# Copy chroot scripts
 	sudo cp "scripts/chroot.sh" "$@.partial/iso/chroot.sh"
 	sudo cp "scripts/repos.sh" "$@.partial/iso/repos.sh"
+	sudo cp "scripts/t2.sh" "$@.partial/iso/t2.sh"
 
 	# Mount chroot
 	"scripts/mount.sh" "$@.partial"
@@ -79,18 +80,6 @@ $(BUILD)/chroot: $(BUILD)/debootstrap
 			/iso/repos.sh"; \
 	fi
 
-	# Add release URIs
-	if [ -n "${RELEASE_URI}" ]; then \
-		sudo $(CHROOT) "$@.partial" /bin/bash -e -c \
-			"FILENAME=\"/etc/apt/sources.list.d/${DISTRO_CODE}-release.sources\" \
-			NAME=\"${DISTRO_NAME} Release Sources\" \
-			TYPES=\"deb deb-src\" \
-			URIS=\"${RELEASE_URI}\" \
-			SUITES=\"${UBUNTU_CODE}\" \
-			COMPONENTS=\"main\" \
-			/iso/repos.sh"; \
-	fi
-
 	# Run chroot script
 	sudo $(CHROOT) "$@.partial" /bin/bash -e -c \
 		"KEY=\"/iso/pop.key\" \
@@ -103,7 +92,7 @@ $(BUILD)/chroot: $(BUILD)/debootstrap
 		CLEAN=1 \
 		/iso/chroot.sh \
 		$(DISTRO_REPOS)"
-
+	
 	# Add extra URIS
 	if [ -n "${APPS_URI}" ]; then \
 		sudo $(CHROOT) "$@.partial" /bin/bash -e -c \
@@ -123,6 +112,9 @@ $(BUILD)/chroot: $(BUILD)/debootstrap
 		AUTOREMOVE=1 \
 		CLEAN=1 \
 		/iso/chroot.sh"
+	# Running T2 Script
+	sudo $(CHROOT) "$@.partial" /bin/bash -e -c \
+	      "/iso/t2.sh"
 
 	# Remove apt preferences
 	sudo rm "$@.partial/etc/apt/preferences.d/pop-iso"
