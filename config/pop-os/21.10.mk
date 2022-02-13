@@ -11,12 +11,17 @@ DEB822:=1
 APPS_URI:=http://apt.pop-os.org/proprietary
 
 # Repositories to be present in installed system
-RELEASE_URI:=http://apt.pop-os.org/release
+DISTRO_REPOS=\
+	ppa:system76/pop
 
 # Add proposed repositories
 ifeq ($(PROPOSED),1)
-RELEASE_URI+=deb http://apt.pop-os.org/staging/master
+DISTRO_REPOS+=\
+	ppa:system76/proposed
 endif
+
+# Add repositories without source
+DISTRO_REPOS+=--
 
 # Packages to install
 DISTRO_PKGS=\
@@ -35,7 +40,7 @@ ifeq ($(NVIDIA),1)
 DISTRO_PARAMS+=modules_load=nvidia
 POST_DISTRO_PKGS+=\
 	amd-ppt-bin \
-	nvidia-driver-470
+	nvidia-driver-460
 endif
 
 # Packages to have in live instance
