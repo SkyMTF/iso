@@ -1,6 +1,6 @@
 # Pop!\_OS ISO production
 
-This repository contains the tools necessary for building Pop!\_OS ISOs.
+This repository contains the tools necessary for building Pop!\_OS ISOs for some Macs with the T2 Chip.
 
 ## Requirements
 
@@ -26,7 +26,7 @@ While you are waiting for your key to be uploaded, install the dependencies:
 ## Building
 
 The build is controlled by the Makefile. The following commands can be used:
-- `make` - Build an ISO at `build/17.10/pop-os.iso`
+- `make` - Build an ISO at `build/21.10/pop-os.iso`
 - `make qemu_bios` - Run the ISO in BIOS mode
 - `make qemu_uefi` - Run the ISO in UEFI mode
 - `make clean` - Remove the build files, keeping the debootstrap
@@ -35,3 +35,25 @@ The build is controlled by the Makefile. The following commands can be used:
 The configuration can be changed in `mk/config.mk`.
 
 To rebuild the ISO when you have made changes, you can use `make clean && make`
+
+
+## Additional Credits
+System76 for making PopOS 
+
+https://pop.system76.com/
+
+T2 Wiki: T2 Conf and DKMS Conf Files
+
+https://t2linux.org/ 
+
+AdityaGarg8: Patched Ubuntu/Debian Kernel
+
+https://github.com/AdityaGarg8/mbp-16.x-ubuntu-kernel
+
+The original repository by SkyMTF
+
+https://github.com/SkyMTF/iso
+
+And all the friends on the T2 Linux Discord who made this possible
+
+https://discord.gg/fsaU8nbaRT
